@@ -2,6 +2,7 @@ import board
 import neopixel
 import time
 from  alphabet import *
+from  packman_collection import *
 pixel_pin = board.D18
 # The number of NeoPixels
 num_pixels = 256
@@ -72,11 +73,19 @@ def clear_matrix():
 
 def colors(color_def):
 	if color_def == 1:
-		return (0, 66, 0)
+		return (0, 66, 0)		#Green R G B
 	elif color_def == 2:
-		return (140, 140, 0)		
+		return (140, 140, 0)	#Yellow		
 	elif color_def == 3:		
-		return (66, 0, 0)
+		return (66, 0, 0)		#Red
+	elif color_def == 4:		
+		return (0, 0, 255)		#Blue
+	elif color_def == 5:		
+		return (166, 50, 255)	#Light Blue
+	elif color_def == 6:		
+		return (167, 254, 100)	#Orange
+	elif color_def == 7:		
+		return (0, 130, 95) 	#Purpel
 	else:
 		return (0,0,0)
 ###################################################################
@@ -126,15 +135,23 @@ if __name__ == '__main__':
 	try:
 		power_supply(True)
 		
-		O = letter('O')
-		G = letter('G')
-		D = letter('D')
-		J = letter('J')
-		U = letter('U')
-		L = letter('L')
-		tree = letter('tree')
+		# O = letter('O')
+		# G = letter('G')
+		# D = letter('D')
+		# J = letter('J')
+		# U = letter('U')
+		# L = letter('L')
+		# tree = letter('tree')
 		
-		led_table = create_display_map(G,O,D,tree,J,U,L,letter('tree'),)
+		pack_1 = pack('pack_1')
+		pack_2 = pack('pack_2')
+		pack_3 = pack('pack_3')
+		pack_4 = pack('pack_4')
+		pack_5 = pack('pack_5')
+		pack_man = pack('pack_man')
+
+		# led_table = create_display_map(G,O,D,tree,J,U,L,letter('tree'),)
+		led_table = create_display_map(pack_1,pack_2,pack_man,pack_3,pack_4,pack_5,pack_man,)
 		# add as much as yoy like to 'led_table'
 		
 		roll = 3
